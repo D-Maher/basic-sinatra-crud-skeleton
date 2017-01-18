@@ -22,3 +22,23 @@ class User < ActiveRecord::Base
   end
 
 end
+
+
+# NOTES
+
+# Longhand for the '||=' expression in the getter method above:
+
+  # if @password
+  #   @password
+  # else
+  #   @password = Password.new(hashed_password)
+  #   return Password.new(hashed_password)
+  # end
+
+  # PSEUDOCODE
+
+    # if @password exists, then return @password
+    # otherwise instantiate a new Password object via BCrypt, using the 'hashed_password' and return that Password object
+
+
+# the BCrypt::Password object contains information such as the  "salt" used in hashing the plain text password
